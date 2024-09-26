@@ -76,8 +76,7 @@ nextBtn.onclick = () =>{
     }else{
         clearInterval(counter);
         clearInterval(counterLine);
-        console.log('complete que')
-        showResultBox()
+        showResultBox();
     }
 }
 
@@ -112,11 +111,9 @@ function optionSelected(answer){
         console.log(userScore)
         answer.classList.add('correct');
         answer.insertAdjacentHTML('beforeend',tickIcon);
-        console.log('correct')
     }else{
         answer.classList.add('incorrect');
         answer.insertAdjacentHTML('beforeend',crossIcon);
-        console.log('incorrect')
 
         for(let i = 0; i < allOption; i++){
             if(optionList.children[i].textContent == rightAnswer){
