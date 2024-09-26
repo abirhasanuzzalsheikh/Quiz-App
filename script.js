@@ -31,8 +31,33 @@ let counter;
 let timeValue = 15;
 let widthValue = 0;
 let counterLine;
+let userScore = 0;
 
 let nextBtn = document.querySelector('.next-que');
+const resultBox = document.querySelector('.result-box');
+const  restartBtn = resultBox.querySelector('.buttons .restart-btn');
+const  quitBtn = resultBox.querySelector('.buttons .quit-btn');
+
+restartBtn.onclick = () => {  
+        quizBox.classList.add('activeQuiz')
+        resultBox.classList.remove('activeResultBox');
+        let queNum = 0;
+        let queCount = 1;
+        let timeValue = 15;
+        let widthValue = 0;
+        let userScore = 0;
+        showQuestion(queNum);
+        queCounter(queCount)
+        clearInterval(counter);
+        startTimer(timeValue);
+        clearInterval(counterLine);
+        startTimerLine(widthValue);
+        nextBtn.style.display = 'none';
+}
+
+quitBtn.onclick = () =>{
+    window.location.reload();
+}
 
 nextBtn.onclick = () =>{
     if (queNum < questions.length - 1){
@@ -47,6 +72,7 @@ nextBtn.onclick = () =>{
         nextBtn.style.display = 'none';
     }else{
         console.log('complete que')
+        showResultBox()
     }
 }
 
@@ -75,7 +101,10 @@ function optionSelected(answer){
     let userAnswer = answer.textContent;
     let rightAnswer = questions[queNum].answer;
     let allOption = optionList.children.length;
+  
     if(userAnswer === rightAnswer){
+        userScore++;
+        console.log(userScore)
         answer.classList.add('correct');
         answer.insertAdjacentHTML('beforeend',tickIcon);
         console.log('correct')
@@ -102,6 +131,23 @@ function queCounter(index){
     const bottomQueCounter = document.querySelector('.total-que');
     let totalQueTag = ` <span><p>${index}</p> of <p>${questions.length}</p> Question </span>`;
     bottomQueCounter.innerHTML = totalQueTag;
+}
+
+function showResultBox(){
+    infoBox.classList.remove('activeInfo');
+    quizBox.classList.remove('activeQuiz');
+    resultBox.classList.add('activeResultBox')
+    const scoreText = document.querySelector('.score-text');
+    if(userScore > 3){
+        let scoreTag = `<span>and congrats!, You got <p>${userScore}</p> out of <p>${questions.length}</p></span>`;
+        scoreText.innerHTML = scoreTag;
+    }else if(userScore > 1){
+        let scoreTag = `<span>and nice, You got <p>${userScore}</p> out of <p>${questions.length}</p></span>`;
+        scoreText.innerHTML = scoreTag;
+    }else{
+        let scoreTag = `<span>and sorry, You get only <p>${userScore}</p> out of <p>${questions.length}</p></span>`;
+        scoreText.innerHTML = scoreTag;
+    }
 }
 
 function startTimer(time){

@@ -32,6 +32,30 @@ export let questions = [
             "style",
             "font"
         ]
+    },
+    {
+        number: 4,
+        question: "Which HTML element is used to define a paragraph?",
+        answer: "p",
+        options: [
+            "paragraph",
+            "p",
+            "para",
+            "text"
+        ]
+    },
+    
+    {
+        number: 5,
+        question: "Which CSS property controls the text size?",
+        answer: "font-size",
+        options: [
+            "text-size",
+            "font-size",
+            "font-style",
+            "text-style"
+        ]
     }
+    
     
 ];
