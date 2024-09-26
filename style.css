@@ -203,6 +203,19 @@ section .options-list .option:hover{
     border-color: #f8d7da;
     background-color: #a42834;
 }
+.options-list .option.correct{
+    color: #23903c;
+    border-color: #23903c;
+    background-color: #d4edda;
+}
+.options-list .option.incorrect{
+    color: #d3a3a8;
+    border-color: #f8d7da;
+    background-color: #a42834;
+}
+.options-list .option.disabled{
+    pointer-events: none;
+}
 .quiz-box footer{
     height: 60px;
     width: 100%;
