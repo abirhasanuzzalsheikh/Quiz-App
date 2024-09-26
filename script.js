@@ -8,6 +8,7 @@ const quizBox = document.querySelector('.quiz-box');
 let optionList = document.querySelector('.options-list');
 const timeCount = document.querySelector('.timer-sec');
 const timeLine = document.querySelector('.time-line');
+const timeOff = document.querySelector('.time-text');
 
 
 startBtn.onclick = () => {
@@ -53,6 +54,7 @@ restartBtn.onclick = () => {
         clearInterval(counterLine);
         startTimerLine(widthValue);
         nextBtn.style.display = 'none';
+        timeOff.textContent = 'Time left';
 }
 
 quitBtn.onclick = () =>{
@@ -70,7 +72,10 @@ nextBtn.onclick = () =>{
         clearInterval(counterLine);
         startTimerLine(widthValue);
         nextBtn.style.display = 'none';
+        timeOff.textContent = 'Time left';
     }else{
+        clearInterval(counter);
+        clearInterval(counterLine);
         console.log('complete que')
         showResultBox()
     }
@@ -161,7 +166,23 @@ function startTimer(time){
         }
         if(time < 0){
             clearInterval(counter)
+            timeOff.textContent = 'Time Off';
             timeCount.textContent = '00';
+
+            let rightAnswer = questions[queNum].answer;
+            let allOption = optionList.children.length;
+
+            for(let i = 0; i < allOption; i++){
+                if(optionList.children[i].textContent == rightAnswer){
+                    optionList.children[i].setAttribute('class','option correct');
+                    optionList.children[i].insertAdjacentHTML('beforeend',tickIcon);
+                }
+            }
+
+            for(let i = 0; i < allOption; i++){
+                optionList.children[i].classList.add('disabled');
+            }
+            nextBtn.style.display = 'block';
         }
     }
 }
