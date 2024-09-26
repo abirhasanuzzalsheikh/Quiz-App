@@ -154,6 +154,13 @@ body{
     border: 1px solid #343a40;
     user-select: none;
 }
+.quiz-box header .time-line{
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    height: 3px;
+    background-color: #007bff;
+}
 .quiz-box section{
     padding: 25px 30px 20px 30px;
     background: #fff;
@@ -237,6 +244,7 @@ footer .total-que span p{
     padding-left: 0px;
 }
 footer .next-que{
+    display: none;
     height: 40px;
     padding: 0 13px;
     font-size: 18px;
