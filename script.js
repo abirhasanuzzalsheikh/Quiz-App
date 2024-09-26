@@ -16,10 +16,17 @@ exitBtn.onclick = ()=>{
 continueBtn.onclick = ()=>{
     infoBox.classList.remove('activeInfo');
     quizBox.classList.add('activeQuiz');
-    showQuestion(2);
+    showQuestion(queNum);
 }
 
 let queNum = 0;
+
+let nextBtn = document.querySelector('.next-que');
+
+nextBtn.onclick = () =>{
+    queNum++;
+    showQuestion(queNum);
+}
 
 function showQuestion(index){
     let queText = document.querySelector('.que-text');

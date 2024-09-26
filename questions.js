@@ -10,19 +10,9 @@ export let questions = [
             "Hyper Tool Multi Language"
         ]
     },
+   
     {
         number: 2,
-        question: "Which HTML tag is used to define an internal style sheet?",
-        answer: "<style>",
-        options: [
-            "<css>",
-            "<script>",
-            "<style>",
-            "<styles>"
-        ]
-    },
-    {
-        number: 3,
         question: "What does CSS stand for?",
         answer: "Cascading Style Sheets",
         options: [
@@ -33,7 +23,7 @@ export let questions = [
         ]
     },
     {
-        number: 4,
+        number: 3,
         question: "Which HTML attribute is used to define the inline styles?",
         answer: "style",
         options: [
@@ -42,17 +32,6 @@ export let questions = [
             "style",
             "font"
         ]
-    },
-    {
-        number: 5,
-        question: "What is the correct HTML element for inserting a line break?",
-        answer: "<br>",
-        options: [
-            "<break>",
-            "<lb>",
-            "<breakline>",
-            "<br>"
-        ]
-    },
+    }
     
 ];
