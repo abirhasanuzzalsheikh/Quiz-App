@@ -16,6 +16,12 @@ body{
                 0px 6px 20px 0 rgba(0,0,0,.19);
 }
 
+.info-box.activeInfo{
+    z-index: 5;
+    opacity: 1;
+    pointer-events: none;
+    transform: translate(-50%,-50%) scale(1);
+}
 /* started Quiz button styling */
 
 .start-btn button{
